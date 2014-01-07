@@ -2,7 +2,7 @@
 
 void main()
 {
-	int weight[]={2,3,5,58,8,5,9};
+	int weight[]={15,2,6,5,20,10,18};
 	std::cout<<"Construct HuffmanTree"<<std::endl;
 	HuffmanTree<int> Huffman(weight,7);
 

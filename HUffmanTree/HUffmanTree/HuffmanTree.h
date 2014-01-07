@@ -21,6 +21,9 @@ public:
 	HuffmanTreeNode<T> *rightChild(){
 		return right;
 	};
+	bool operator > (HuffmanTreeNode<T> &HN) {return info > HN.info;}; // 注意要重载运算符
+	bool operator < (HuffmanTreeNode<T> &HN) {return info < HN.info;}; 
+	bool operator == (HuffmanTreeNode<T> &HN) {return info == HN.info;};
 };
 
 template<typename T>
@@ -43,9 +46,7 @@ public:
 	HuffmanTreeNode<T>* getRoot(){
 		return root;
 	};
-	bool operator > (HuffmanTreeNode<T> &HN) {return info > HN.info;}; // 注意要重载运算符
-	bool operator < (HuffmanTreeNode<T> &HN) {return info < HN.info;}; 
-	bool operator == (HuffmanTreeNode<T> &HN) {return info == HN.info;};
+
 };
 
 template<typename T>
@@ -60,7 +61,7 @@ HuffmanTree<T>::HuffmanTree(T weight[],int n){
 		heap.insert(nodeList[i]);
 	}
 
-	for(int i=0;i<n;i++) {
+	for(int i=0;i<n-1;i++) {
 		parent=new HuffmanTreeNode<T>;
 		firstChild=heap.removeMin();
 		secondChild=heap.removeMin();
